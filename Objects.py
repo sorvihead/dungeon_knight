@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC, abstractmethod, ABCMeta
 import pygame
 import random
 
@@ -9,6 +9,14 @@ def create_sprite(img, sprite_size):
     sprite = pygame.Surface((sprite_size, sprite_size), pygame.HWSURFACE)
     sprite.blit(icon, (0, 0))
     return sprite
+
+
+class AbstractObject(metaclass=ABCMeta):
+    def __init__(self):
+        pass
+
+    def draw(self, display):
+        pass
 
 
 class Interactive(ABC):
